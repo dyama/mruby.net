@@ -24,7 +24,10 @@
 //#define MRB_ENDIAN_BIG
 
 /* represent mrb_value as a word (natural unit of data for the processor) */
-// #define MRB_WORD_BOXING
+//#define MRB_WORD_BOXING
+
+/* string class to handle UTF-8 encoding */
+//#define MRB_UTF8_STRING
 
 /* argv max size in mrb_funcall */
 //#define MRB_FUNCALL_ARGC_MAX 16
@@ -38,8 +41,12 @@
 /* initial size for IV khash; ignored when MRB_USE_IV_SEGLIST is set */
 //#define MRB_IVHASH_INIT_SIZE 8
 
-/* initial size for IREP array */
-//#define MRB_IREP_ARRAY_INIT_SIZE (256u)
+/* if _etext and _edata available, mruby can reduce memory used by symbols */
+//#define MRB_USE_ETEXT_EDATA
+
+/* do not use __init_array_start to determine readonly data section;
+   effective only when MRB_USE_ETEXT_EDATA is defined */
+//#define MRB_NO_INIT_ARRAY_START
 
 /* turn off generational GC by default */
 //#define MRB_GC_TURN_OFF_GENERATIONAL
@@ -56,32 +63,37 @@
 /* initial minimum size for string buffer */
 //#define MRB_STR_BUF_MIN_SIZE 128
 
-/* array size for parser buffer */
-//#define MRB_PARSER_BUF_SIZE 1024
-
 /* arena size */
 //#define MRB_GC_ARENA_SIZE 100
 
 /* fixed size GC arena */
 //#define MRB_GC_FIXED_ARENA
 
-/* -DDISABLE_XXXX to drop following features */
-//#define DISABLE_STDIO		/* use of stdio */
+/* state atexit stack size */
+//#define MRB_FIXED_STATE_ATEXIT_STACK_SIZE 5
 
-/* -DENABLE_XXXX to enable following features */
-//#define ENABLE_DEBUG		/* hooks for debugger */
+/* fixed size state atexit stack */
+//#define MRB_FIXED_STATE_ATEXIT_STACK
+
+/* -DMRB_DISABLE_XXXX to drop following features */
+//#define MRB_DISABLE_STDIO	/* use of stdio */
+
+/* -DMRB_ENABLE_XXXX to enable following features */
+//#define MRB_ENABLE_DEBUG_HOOK	/* hooks for debugger */
 
 /* end of configuration */
 
-/* define ENABLE_XXXX from DISABLE_XXX */
-#ifndef DISABLE_STDIO
-#define ENABLE_STDIO
-#endif
-#ifndef ENABLE_DEBUG
-#define DISABLE_DEBUG
+/* define MRB_DISABLE_XXXX from DISABLE_XXX (for compatibility) */
+#ifdef DISABLE_STDIO
+#define MRB_DISABLE_STDIO
 #endif
 
-#ifdef ENABLE_STDIO
+/* define MRB_ENABLE_XXXX from ENABLE_XXX (for compatibility) */
+#ifdef ENABLE_DEBUG
+#define MRB_ENABLE_DEBUG_HOOK
+#endif
+
+#ifndef MRB_DISABLE_STDIO
 # include <stdio.h>
 #endif
 

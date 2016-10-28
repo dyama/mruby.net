@@ -65,7 +65,7 @@ namespace MRuby {
                 {
                     auto mrb_string = mrb_funcall(NativeMrbState, *NativeMrbValue, "to_s", 0);
                     auto c_string = mrb_string_value_cstr(NativeMrbState, &mrb_string);
-                    return Marshal::PtrToStringAnsi((IntPtr)c_string);
+                    return gcnew System::String(c_string);
                 }
 
             internal:

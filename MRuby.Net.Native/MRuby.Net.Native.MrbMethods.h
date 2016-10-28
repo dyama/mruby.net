@@ -42,7 +42,7 @@ namespace MRuby {
                         // exception message.
                         auto exception_message = mrb_funcall(mrb_state, mrb_exception, "to_s", 0);
                         auto c_string = mrb_string_value_cstr(mrb_state, &exception_message);
-                        throw gcnew Exception(Marshal::PtrToStringAnsi((IntPtr)c_string));
+                        throw gcnew Exception(gcnew System::String(c_string));
                     }
 
                     return gcnew MrbValue(mrb_state, result);

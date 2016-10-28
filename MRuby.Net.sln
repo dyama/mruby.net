@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRuby.Net.Native.Tests", "MRuby.Net.Native.Tests\MRuby.Net.Native.Tests.csproj", "{E65F1B5A-7336-41F5-BE0E-E5D33B07ECF0}"
 EndProject
@@ -31,9 +31,10 @@ Global
 		{9F231241-80D9-4BE2-A0EA-1FD525268A58}.Debug|x86.Build.0 = Debug|Win32
 		{9F231241-80D9-4BE2-A0EA-1FD525268A58}.Release|x86.ActiveCfg = Release|Win32
 		{9F231241-80D9-4BE2-A0EA-1FD525268A58}.Release|x86.Build.0 = Release|Win32
-		{89663686-648E-45E3-B95F-1FC847AA93CB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{89663686-648E-45E3-B95F-1FC847AA93CB}.Debug|x86.Build.0 = Debug|Any CPU
-		{89663686-648E-45E3-B95F-1FC847AA93CB}.Release|x86.ActiveCfg = Release|Any CPU
+		{89663686-648E-45E3-B95F-1FC847AA93CB}.Debug|x86.ActiveCfg = Debug|x86
+		{89663686-648E-45E3-B95F-1FC847AA93CB}.Debug|x86.Build.0 = Debug|x86
+		{89663686-648E-45E3-B95F-1FC847AA93CB}.Release|x86.ActiveCfg = Release|x86
+		{89663686-648E-45E3-B95F-1FC847AA93CB}.Release|x86.Build.0 = Release|x86
 		{DA1E7D39-2E75-48C0-9A68-1415A3E9C9F3}.Debug|x86.ActiveCfg = Debug|x86
 		{DA1E7D39-2E75-48C0-9A68-1415A3E9C9F3}.Debug|x86.Build.0 = Debug|x86
 		{DA1E7D39-2E75-48C0-9A68-1415A3E9C9F3}.Release|x86.ActiveCfg = Release|x86
